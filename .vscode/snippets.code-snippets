@@ -1,0 +1,46 @@
+{
+    "MonoBeh":{
+        "prefix": "MonoBehaviourClass",
+        "body": [
+            "using UnityEngine;",
+            "",
+            "public class ${TM_FILENAME_BASE} : MonoBehaviour",
+            "{",
+            "    private void Start()",
+            "    {",
+            "    }",
+            "",
+            "    private void Update()",
+            "    {",
+            "    }",
+            "}"
+        ]
+    },
+
+    "Single":{
+        "prefix": "SingletonClass",
+        "body": [
+            "using UnityEngine;",
+            "",
+            "public class ${TM_FILENAME_BASE} : MonoBehaviour",
+            "{",
+            "    public static ${TM_FILENAME_BASE} Instance;",
+            "",
+            "    private void Start()",
+            "    {",
+            "        if (Instance == null)",
+            "        {",
+            "            Instance = this;",
+            "            DontDestroyOnLoad(Instance);",
+            "        }",
+            "        else",
+            "           Destroy(gameObject);",
+            "    }",
+            "",
+            "    private void Update()",
+            "    {",
+            "    }",
+            "}"
+        ]
+    }
+}
