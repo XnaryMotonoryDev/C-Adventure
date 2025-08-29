@@ -42,5 +42,18 @@
             "    }",
             "}"
         ]
+    },
+
+    "Scriptable":{
+        "prefix": "SO",
+        "body": [
+            "using UnityEngine;",
+            "",
+            "[CreateAssetMenu(fileName = \"${1:${TM_FILENAME_BASE}}\", menuName = \"${2:menu}\")]",
+            "public class ${TM_FILENAME_BASE} : ScriptableObject",
+            "{",
+            "    $0",
+            "}"
+        ]
     }
 }

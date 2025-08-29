@@ -1,8 +1,11 @@
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
 public class ConsoleHandler : MonoBehaviour
 {
+    [SerializeField] private ObjectData data;
+
     [SerializeField] private TMP_InputField consoleInput;
     [SerializeField] private TMP_Text logText;
 
@@ -24,7 +27,27 @@ public class ConsoleHandler : MonoBehaviour
         switch (command)
         {
             case "connect":
+            {
                 if (!ValidateArg(args, 1)) return;
+                var index = args[1];
+                // TODO: refactor method
+                if (int.TryParse(index, out var id))
+                {
+                    var currentInfo = data.infos.FirstOrDefault(info => info.id == id);
+                    logText.text = currentInfo.id == id ? "Вы успешно присоединились"
+                    : $"Объект с таким индентификатором ({id}) не найден"; // TODO: bug
+                }
+            }
+                break;
+            case "find":
+                foreach (var info in data.infos)
+                {
+                    var id = info.id;
+                    
+                    logText.text = $"ID: {id}";
+                    Debug.Log($"ID: {id}");
+                
+                }
                 break;
             default:
                 logText.text = "Такой команды нет";

@@ -1,4 +1,0 @@
-interface IInterectable
-{
-    void Interact();
-}
